@@ -1,0 +1,22 @@
+.table {
+    font-family: GillSans, Calibri, Trebuchet, sans-serif;
+    font-size: 18px;
+    margin: 20px;
+}
+.mat-row {
+    height: auto;
+  }
+  
+.mat-cell, .mat-header-cell {
+    padding: 10px 15px;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 50%;
+    
+  }
+label {
+    padding: 10px 15px;
+    margin: 20px;
+}
