@@ -27,7 +27,7 @@ export class ViewDataComponent implements OnInit {
   siteArray: Data[] = [];
   length: any;
 
-
+  generalFilter = new FormControl('');
   clusterFilter = new FormControl('');
   applicationFilter = new FormControl('');
   aliasFilter = new FormControl('');
@@ -45,6 +45,7 @@ export class ViewDataComponent implements OnInit {
   sslFilter = new FormControl('');
 
   filterValues = {
+    General:'',
     Cluster: '',
     Application: '',
     Alias: '',
@@ -85,6 +86,14 @@ export class ViewDataComponent implements OnInit {
       .subscribe(
         cluster => {
           this.filterValues.Cluster = cluster;
+          this.dataSource.filter = JSON.stringify(this.filterValues);
+          
+        }
+      )
+    this.generalFilter.valueChanges
+      .subscribe(
+        general => {
+          this.filterValues.General = general;
           this.dataSource.filter = JSON.stringify(this.filterValues);
         }
       )
@@ -130,17 +139,80 @@ export class ViewDataComponent implements OnInit {
           this.dataSource.filter = JSON.stringify(this.filterValues);
         }
       )
+    this.apacheFilter.valueChanges
+      .subscribe(
+        aphe => {
+          this.filterValues.ApacheVersion = aphe;
+          this.dataSource.filter = JSON.stringify(this.filterValues);
+        }
+      )
+    this.contextFilter.valueChanges
+      .subscribe(
+        ctxt => {
+          this.filterValues.Context = ctxt;
+          this.dataSource.filter = JSON.stringify(this.filterValues);
+        }
+      )
+    this.osFilter.valueChanges
+      .subscribe(
+        os => {
+          this.filterValues.OS = os;
+          this.dataSource.filter = JSON.stringify(this.filterValues);
+        }
+      )
+    this.trafficFilter.valueChanges
+      .subscribe(
+        traffic => {
+          this.filterValues.Traffic = traffic;
+          this.dataSource.filter = JSON.stringify(this.filterValues);
+        }
+      )
+    this.sizeFilter.valueChanges
+      .subscribe(
+        size => {
+          this.filterValues.FileSize = size;
+          this.dataSource.filter = JSON.stringify(this.filterValues);
+        }
+      )
+    this.extFilter.valueChanges
+      .subscribe(
+        ext => {
+          this.filterValues.FIleExtersion = ext;
+          this.dataSource.filter = JSON.stringify(this.filterValues);
+        }
+      )
+    this.sslFilter.valueChanges
+      .subscribe(
+        ssl => {
+          this.filterValues.SSL = ssl;
+          this.dataSource.filter = JSON.stringify(this.filterValues);
+        }
+      )
+    this.lastFilter.valueChanges
+      .subscribe(
+        last => {
+          this.filterValues.LastDeployed = last;
+          this.dataSource.filter = JSON.stringify(this.filterValues);
+        }
+      )
   }
 
   getProducts(): Observable<any[]> {
     return this.httpClient.get<any[]> ('../../assets/pr_dmz_list.json');
   }
 
+  /*flterCheck(){
+    if(this.filter1){
+      this.dataSource.filterPredicate = this.tableFilter();
+    }
+  }*/
+
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   tableFilter(): (data: any, filter: string) => boolean {
+    
     let filterFunction = function(data, filter): boolean {
       let searchTerms = JSON.parse(filter);
       return data.Cluster.toLowerCase().indexOf(searchTerms.Cluster) !== -1
@@ -153,11 +225,12 @@ export class ViewDataComponent implements OnInit {
       && data.ApacheVersion.toLowerCase().indexOf(searchTerms.ApacheVersion) !== -1
       && data.Context.toLowerCase().indexOf(searchTerms.Context) !== -1
       && data.OS.toLowerCase().indexOf(searchTerms.OS) !== -1
-      && data.Traffic.toLowerCase().indexOf(searchTerms.Traffic) !== -1
-      && data.LastDeployed.toLowerCase().indexOf(searchTerms.LastDeployed) !== -1
-      && data.FileSize.toLowerCase().indexOf(searchTerms.Application) !== -1
-      && data.FIleExtersion.toLowerCase().indexOf(searchTerms.Application) !== -1
-      && data.SSL.toLowerCase().indexOf(searchTerms.Application) !== -1
+      && data.Traffic.toString().toLowerCase().indexOf(searchTerms.Traffic) !== -1
+      && data.LastDeployed.toString().toLowerCase().indexOf(searchTerms.LastDeployed) !== -1
+      && data.FileSize.toLowerCase().indexOf(searchTerms.FileSize) !== -1
+      && data.FIleExtersion.toLowerCase().indexOf(searchTerms.FIleExtersion) !== -1
+      && data.SSL.toLowerCase().indexOf(searchTerms.SSL) !== -1
+
     }
     return filterFunction;
   } 
