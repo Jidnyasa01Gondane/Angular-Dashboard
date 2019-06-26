@@ -2,7 +2,20 @@
     font-family: GillSans, Calibri, Trebuchet, sans-serif;
     font-size: 18px;
     margin: 20px;
+    display: block !important;
+    
 }
+
+.mat-card {
+	min-width: max-content;
+	max-width: max-content;
+}
+
+.mat-card {
+	min-width: 100% !important;
+	max-width: 100% !important;
+}
+
 .mat-row {
     height: auto;
   }
@@ -16,7 +29,17 @@
     width: 50%;
     
   }
+
 label {
-    padding: 10px 15px;
+    padding: 10px;
     margin: 20px;
+}
+
+.mat-column-select {
+  overflow: initial;
+}
+
+mat-label {
+  color: white;
+  font-family: GillSans, Calibri, Trebuchet, sans-serif;
 }

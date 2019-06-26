@@ -1,10 +1,18 @@
 export interface Data {
     Cluster: string;
-    Servers: string;
     Application: string;
     Alias: string;
     DNS: string;
-    Traffic: number;
+    DocRoot: string;
+    Servers: string;
     Category: string;
-    Decission: string;
+    ApacheVersion: string;
+    Context: string;
+    OS: string;
+    Traffic: number;
+    LastDeployed: Date;
+    FileSize: string;
+    FIleExtersion: string;
+    SSL: string;
+    
   }
