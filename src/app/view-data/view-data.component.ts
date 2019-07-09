@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { MatSort, MatTableDataSource,MatInputModule } from '@angular/material';
 import {MatPaginator} from '@angular/material/paginator';
 
-import { Data } from '../data.model';
+import { Data } from '../Shared/data.model';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -70,7 +70,7 @@ export class ViewDataComponent implements OnInit {
   ngOnInit() {
     this.getProducts().subscribe(
       data => {
-        //data = data["query"];
+        data = data["query"];
         this.siteArray = data;
         this.dataSource = new MatTableDataSource(this.siteArray);
         this.dataSource.paginator = this.paginator;

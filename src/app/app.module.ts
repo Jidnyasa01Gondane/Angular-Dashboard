@@ -8,12 +8,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ConvertToJSONComponent } from './convert-to-json/convert-to-json.component';
 import { ViewDataComponent } from './view-data/view-data.component';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule, MatFormFieldModule, MatInputModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { NavigationComponent } from './navigation/navigation.component';
+import { DataTableComponent } from './data-table/data-table.component';
+
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule, MatFormFieldModule, MatInputModule, MatToolbarModule, 
+  MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatCardModule } from '@angular/material';
-import { FilterTemplateComponent } from './view-data/filter-template/filter-template.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
+
+import { GoogleChartModule } from './google-chart/google-chart.module';
 
 @NgModule({
   declarations: [
@@ -21,10 +27,11 @@ import { FilterTemplateComponent } from './view-data/filter-template/filter-temp
     ConvertToJSONComponent,
     ViewDataComponent,
     NavigationComponent,
-    FilterTemplateComponent
+    DataTableComponent
   ],
   imports: [
     BrowserModule,
+    GoogleChartModule,
     MatTableModule,
     MatCardModule,
     MatPaginatorModule,
@@ -40,7 +47,8 @@ import { FilterTemplateComponent } from './view-data/filter-template/filter-temp
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

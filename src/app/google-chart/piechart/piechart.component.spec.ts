@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FilterTemplateComponent } from './filter-template.component';
+import { PiechartComponent } from './piechart.component';
 
-describe('FilterTemplateComponent', () => {
-  let component: FilterTemplateComponent;
-  let fixture: ComponentFixture<FilterTemplateComponent>;
+describe('PiechartComponent', () => {
+  let component: PiechartComponent;
+  let fixture: ComponentFixture<PiechartComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FilterTemplateComponent ]
+      declarations: [ PiechartComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FilterTemplateComponent);
+    fixture = TestBed.createComponent(PiechartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

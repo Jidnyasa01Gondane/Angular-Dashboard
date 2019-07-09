@@ -1,4 +1,4 @@
-[
+{"query":[
  {
    "Cluster": "DMZ 01",
    "Application": "www.propeciaoffer.com_decom_29_02_2016",
@@ -49181,3 +49181,4 @@
    "SSL": "epbusampleordering.com|NO www.epbusampleordering.com|NO"
  }
 ]
+}
