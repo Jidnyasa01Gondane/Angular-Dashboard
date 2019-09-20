@@ -17,32 +17,10 @@ table {
     padding: 200px;
   }
 
-  tr.example-detail-row {
-    height: 0;
+  .mat-row {
+    height: auto;
   }
   
-  tr.example-element-row:not(.example-expanded-row):hover {
-    background: rgb(211, 211, 211);
-  }
-  
-  tr.example-element-row:not(.example-expanded-row):active {
-    background: #efefef;
-  }
-  
-  .example-element-row td {
-    border-bottom-width: 0;
-  }
-  
-  .example-element-detail {
-    overflow: hidden;
-    display: flex;
-  }
-  
-  .example-element-description {
-    padding: 16px;
-  }
-  
-  .example-element-description-attribution {
-    opacity: 0.5;
-  }
-  
+.mat-cell, .mat-header-cell {
+    padding: 10px 10px;
+}

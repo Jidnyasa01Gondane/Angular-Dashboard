@@ -1,10 +1,11 @@
-.table {
-    font-family: GillSans, Calibri, Trebuchet, sans-serif;
-    font-size: 18px;
-    margin: 20px;
-    display: block !important;
-    
+table {
+  width: 100%;
+  font-family: GillSans, Calibri, Trebuchet, sans-serif;
+  font-size: 18px;
+  margin: 10px;
+  display: block !important;
 }
+
 
 .mat-card {
 	min-width: max-content;
@@ -21,7 +22,7 @@
   }
   
 .mat-cell, .mat-header-cell {
-    padding: 10px 15px;
+    padding: 10px;
 }
 
 .mat-form-field {
@@ -32,7 +33,7 @@
 
 label {
     padding: 10px;
-    margin: 20px;
+    margin: 10px;
 }
 
 .mat-column-select {

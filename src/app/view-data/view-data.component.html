@@ -1,14 +1,8 @@
 <div class="container-fluid">
-  <label>Search:</label> 
-  <mat-form-field class="filter" floatLabel="never">
-      <input matInput [formControl]="generalFilter"  placeholder="Filter">
-  </mat-form-field>
-  <span><i class="material-icons">search</i></span>
-</div>
-
-<div class="container-fluid">
   <mat-card class="mat-card">
-    <table mat-table [dataSource]="dataSource" class="table table-hover table-responsive table-striped" 
+    <table 
+    mat-table [dataSource]="dataSource" 
+    class="table table-hover table-responsive table-striped" 
       matSort>
 
         <!--- Note that these columns can be defined in any order.
@@ -25,6 +19,18 @@
         </th>
           <td mat-cell *matCellDef="let element"> {{element.Cluster}} </td>
         </ng-container>
+
+        <!-- servers Column -->
+        <ng-container matColumnDef="Servers">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> SERVER_LIST 
+          <br>
+          <mat-form-field class="filter" floatLabel="never">
+            <mat-label>Search</mat-label>
+            <input matInput [formControl]="serverFilter">
+          </mat-form-field>
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.Servers}} </td>
+        </ng-container>
         
         <!-- website Column -->
         <ng-container matColumnDef="Application">
@@ -38,21 +44,9 @@
           <td mat-cell *matCellDef="let element"> {{element.Application }} </td>
         </ng-container>
 
-        <!-- alias Column -->
-        <ng-container matColumnDef="Alias">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> ALIAS|DNS|DNS_OUTPUT 
-              <br>
-              <mat-form-field class="filter" floatLabel="never">
-                <mat-label>Search</mat-label>
-                <input matInput [formControl]="aliasFilter">
-              </mat-form-field>
-          </th>
-          <td mat-cell *matCellDef="let element"> {{element.Alias}} </td>
-        </ng-container>
-
         <!-- DNS Column -->
         <ng-container matColumnDef="DNS">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> APP_URL|DNS|DNS_OUTPUT 
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> DNS
               <br>
               <mat-form-field class="filter" floatLabel="never">
                 <mat-label>Search</mat-label>
@@ -61,79 +55,7 @@
           </th>
           <td mat-cell *matCellDef="let element"> {{element.DNS}} </td>
         </ng-container>
-
-        <!-- DocRoot Column -->
-        <ng-container matColumnDef="DocRoot">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> DOC_ROOT 
-          <br>
-          <mat-form-field class="filter" floatLabel="never">
-            <mat-label>Search</mat-label>
-            <input matInput [formControl]="docrootFilter">
-          </mat-form-field>
-          </th>
-          <td mat-cell *matCellDef="let element"> {{element.DocRoot}} </td>
-        </ng-container>
-
-        <!-- servers Column -->
-        <ng-container matColumnDef="Servers">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> SERVER_LIST 
-          <br>
-          <mat-form-field class="filter" floatLabel="never">
-            <mat-label>Search</mat-label>
-            <input matInput [formControl]="serverFilter">
-          </mat-form-field>
-          </th>
-          <td mat-cell *matCellDef="let element"> {{element.Servers}} </td>
-        </ng-container>
       
-        <!-- Category Column -->
-        <ng-container matColumnDef="Category">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> CATEGORY 
-          <br>
-          <mat-form-field class="filter" floatLabel="never">
-            <mat-label>Search</mat-label>
-            <input matInput [formControl]="categoryFilter">
-          </mat-form-field>
-          </th>
-          <td mat-cell *matCellDef="let element"> {{element.Category}} </td>
-        </ng-container>
-
-        <!-- ApacheVersion Column -->
-        <ng-container matColumnDef="ApacheVersion">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> APACHE VERSION 
-          <br>
-          <mat-form-field class="filter" floatLabel="never">
-            <mat-label>Search</mat-label>
-            <input matInput [formControl]="apacheFilter">
-          </mat-form-field>
-          </th>
-          <td mat-cell *matCellDef="let element"> {{element.ApacheVersion}} </td>
-        </ng-container>
-
-        <!-- Context Column -->
-        <ng-container matColumnDef="Context">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> CONTEXT|TOMCAT_VERSION|JDK_VERSION 
-          <br>
-          <mat-form-field class="filter" floatLabel="never">
-            <mat-label>Search</mat-label>
-            <input matInput [formControl]="contextFilter">
-          </mat-form-field>
-          </th>
-          <td mat-cell *matCellDef="let element"> {{element.Context}} </td>
-        </ng-container>
-      
-        <!-- OS Column -->
-        <ng-container matColumnDef="OS">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> OS DETAILS 
-          <br>
-          <mat-form-field class="filter" floatLabel="never">
-            <mat-label>Search</mat-label>
-            <input matInput [formControl]="osFilter">
-          </mat-form-field>
-          </th>
-          <td mat-cell *matCellDef="let element"> {{element.OS}} </td>
-        </ng-container>
-
         <!-- Traffic Column -->
         <ng-container matColumnDef="Traffic">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> HIT COUNT
@@ -146,59 +68,33 @@
           <td mat-cell *matCellDef="let element"> {{element.Traffic}} </td>
         </ng-container>
 
+        <!-- Category Column -->
+        <ng-container matColumnDef="Category">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> CATEGORY 
+          <br>
+          <mat-form-field class="filter" floatLabel="never">
+            <mat-label>Search</mat-label>
+            <input matInput [formControl]="categoryFilter">
+          </mat-form-field>
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.Category}} </td>
+        </ng-container>
+
         <!-- LastDeployed Column -->
-        <ng-container matColumnDef="LastDeployed">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> LAST DEPLOYED 
+        <ng-container matColumnDef="Decission">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> DECISSION
           <br>
           <mat-form-field class="filter" floatLabel="never">
             <mat-label>Search</mat-label>
-            <input matInput [formControl]="lastFilter">
+            <input matInput [formControl]="decissionFilter">
           </mat-form-field>
           </th>
-          <td mat-cell *matCellDef="let element"> {{element.LastDeployed}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.Decission}} </td>
         </ng-container>
-
-        <!-- FileSize Column -->
-        <ng-container matColumnDef="FileSize">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> FILE SIZE 
-          <br>
-          <mat-form-field class="filter" floatLabel="never">
-            <mat-label>Search</mat-label>
-            <input matInput [formControl]="sizeFilter">
-          </mat-form-field>
-          </th>
-          <td mat-cell *matCellDef="let element"> {{element.FileSize}} </td>
-        </ng-container>
-      
-        
-
-        <!-- FIleExtersion Column -->
-        <ng-container matColumnDef="FIleExtersion">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> FILE EXTENSION 
-            <br>
-          <mat-form-field class="filter" floatLabel="never">
-            <mat-label>Search</mat-label>
-            <input matInput [formControl]="extFilter">
-          </mat-form-field>
-          </th>
-            <td mat-cell *matCellDef="let element"> {{element.FIleExtersion}} </td>
-        </ng-container>
-
-        <!-- SSL Column -->
-        <ng-container matColumnDef="SSL">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> URL|SSL 
-            <br>
-          <mat-form-field class="filter" floatLabel="never">
-            <mat-label>Search</mat-label>
-            <input matInput [formControl]="sslFilter">
-          </mat-form-field>
-          </th>
-            <td mat-cell *matCellDef="let element"> {{element.SSL}} </td>
-        </ng-container>
-
         <tr mat-header-row *matHeaderRowDef="displayedColumns" class="thead-dark"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
+
     </mat-card>
 </div>
 <mat-paginator [pageSizeOptions]="[10,100, 500 ,1000, 20000]" showFirstLastButtons></mat-paginator>

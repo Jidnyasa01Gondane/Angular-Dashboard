@@ -27,12 +27,18 @@ export class OverviewComponent implements OnInit {
         siteArray = data["query"];
         //total data
         this.overviewData.push(siteArray.length);
-        //migrated data
-        var migrated = jsonQuery(['query[*Status=?]','Migrated'], {
-          data: data }
-          );
-          this.overviewData.push(migrated.value.length);
-          console.log(this.overviewData);
+        var decision = siteArray.map( 
+          (value) => value.Decission).filter( 
+          (value, index, _siteArray) => _siteArray.indexOf(value) == index);
+        //console.log(decision);
+        for (let entry of decision) {
+          var decissionData = jsonQuery(['query[*Decission=?]',entry], {
+            data: data }
+            );
+            this.overviewData.push(decissionData.value.length);
+        }
+          
+          //console.log(this.overviewData);
       }
     );
     

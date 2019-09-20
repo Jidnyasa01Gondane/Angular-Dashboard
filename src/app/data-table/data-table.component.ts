@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort, MatPaginator, MatTableDataSource } from '@angular/material';
-import { Data } from '@angular/router';
+import { Data } from '../Shared/data.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {animate, state, style, transition, trigger} from '@angular/animations';
@@ -8,18 +8,12 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 @Component({
   selector: 'app-data-table',
   templateUrl: './data-table.component.html',
-  styleUrls: ['./data-table.component.css'],
-  animations: [
-    trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0'})),
-      state('expanded', style({height: '*'})),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-    ]),
-  ],
+  styleUrls: ['./data-table.component.css']
 })
 export class DataTableComponent implements OnInit {
 
-  displayedColumns: string[] = [ 'Cluster','Application','Alias','DNS','Category'];
+  displayedColumns: string[] = [ 'Cluster','Servers','Application','DNS','Traffic',
+    'Category','Decission'];
   expandedElement: Data | null;
 
   dataSource;
@@ -50,7 +44,7 @@ export class DataTableComponent implements OnInit {
   }
 
   getProducts(): Observable<any[]> {
-    return this.httpClient.get<any[]> ('../../assets/pr_dmz_list.json');
+    return this.httpClient.get<any[]> ('../../assets/pr_dmz_list_updated.json');
   }
 
 }

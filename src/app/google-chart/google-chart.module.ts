@@ -7,8 +7,17 @@ import {  DashboardComponent } from '../google-chart/dashboard/dashboard.compone
 import { MatCardModule, MatGridListModule, MatMenuModule } from '@angular/material';
 import { MatIconModule } from '@angular/material';
 import { OverviewComponent } from './overview/overview.component';
+import { BarchartComponent } from './barchart/barchart.component';
+import { ChartComponent } from './chart/chart.component';
+
 @NgModule({
-  declarations: [PiechartComponent,DashboardComponent, OverviewComponent],
+  declarations: [
+    PiechartComponent,
+    DashboardComponent, 
+    OverviewComponent, 
+    BarchartComponent,
+    ChartComponent
+  ],
   imports: [
     CommonModule,
     MatCardModule,

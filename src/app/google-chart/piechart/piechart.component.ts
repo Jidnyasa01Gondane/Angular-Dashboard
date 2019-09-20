@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GoogleChartService } from '../service/google-chart.service';
-import { PieData } from '../service/pie.model';
+import { GraphData } from '../service/graph.model';
 
 @Component({
   selector: 'app-piechart',
@@ -11,7 +11,7 @@ export class PiechartComponent implements OnInit {
 
   private gLib: any;
 
-  pieData: PieData[]= [];
+  pieData: GraphData[]= [];
 
   constructor(private gChartService : GoogleChartService) { 
     this.gLib = this.gChartService.getGoogle();
@@ -38,8 +38,9 @@ export class PiechartComponent implements OnInit {
 
     let options = {
       'title':'Category-Wise Distribution',
+        'is3D': true,
         'width': '100%',
-        'height': '400px',};
+        'height': '550px',};
     chart.draw(data, options);
   }
 }

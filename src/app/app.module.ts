@@ -21,6 +21,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { GoogleChartModule } from './google-chart/google-chart.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
