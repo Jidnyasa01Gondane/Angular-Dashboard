@@ -44,7 +44,7 @@ export class DataTableComponent implements OnInit {
   }
 
   getProducts(): Observable<any[]> {
-    return this.httpClient.get<any[]> ('../../assets/pr_dmz_list_updated.json');
+    return this.httpClient.get<any[]> ('assets/pr_dmz_list_updated.json');
   }
 
 }
