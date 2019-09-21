@@ -140,7 +140,7 @@ export class ViewDataComponent implements OnInit {
       && data.DNS.toLowerCase().indexOf(searchTerms.DNS) !== -1
       && data.Traffic.toString().toLowerCase().indexOf(searchTerms.Traffic) !== -1
       && data.Category.toLowerCase().indexOf(searchTerms.Category) !== -1
-      && data.Decission.toString().toLowerCase().indexOf(searchTerms.Decission) !== -1
+      && data.Decission.toLowerCase().indexOf(searchTerms.Decission) !== -1
     }
     return filterFunction;
   } 
